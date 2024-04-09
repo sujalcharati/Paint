@@ -1,0 +1,48 @@
+body{
+    background-color:#00bfff;
+}
+.leftbar{
+    background-color: aliceblue;
+    width: 200px;
+    height: 550px;
+    position: fixed;
+    left: 75px;
+    top: 85px;
+    border-radius: 11px;
+
+}
+.rightbar{
+    background-color: aliceblue;
+    width: 65.5%;
+    height: 550px;
+    position: fixed;
+    right: 200px;
+    top: 85px;
+    border-radius: 11px;
+}
+.tool{
+
+    position: fixed;
+    left: 140px;
+}
+img{
+    width: 30px;
+    position: fixed;
+    top: 176px;
+    left: 89px;
+}
+span{
+    font-size: larger;
+    position: fixed;
+    top: 180px;
+    left: 140px;
+    color: dimgray;
+
+}
+.pen{ 
+    width: 30px;
+    position: fixed;
+    top: 220px;
+    left: 89px;
+
+}
