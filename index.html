@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="leftbar"> 
-        <h3 class="tool">Tools</h3>
-        <img src="../pencil.png" alt="pencil">
-        <span>Pencil</span>
-        <img  class="pen-img"src="../pen.png" alt="pen">
-        <span class="pen">Pen</span>
-        <img class="brush-img" src="../brush.png" alt="brush">
-        <p class="brush"> Brush</p>
-        <img  class ="eraser-img" src="../eraser.png" alt="eraser">
-        <p class ="eraser">Eraser</p>
-    </div>
-    <h3 class="color">Colors</h3>
-    <img  class="blue"  src="../blue.png" alt="blue">
-    <img  class="red"  src="../red.png" alt="red">
-    <img  class="green"   src="../green.png" alt="">
-    <img  class="black"   src="../black.png" alt="">
-    <img  class="yellow"   src="../yellow.png" alt="">
-    </div>
-    <button class="clear">Clear All</button>
-    <button class="save-img"> Save Image</button>
-    <div class="rightbar"> </div>
 
-    <script src="script.js"></script>
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="toolbar">
+    <h3 class="tool">Tools</h3>
+    <img src="assets/pencil.png" alt="pencil">
+    <span>Pencil</span>
+    <img class="pen-img" src="assets/pen.png" alt="pen">
+    <span class="pen">Pen</span>
+    <img class="brush-img" src="assets/brush.png" alt="brush">
+    <p class="brush"> Brush</p>
+    <img class="eraser-img" src="assets/eraser.png" alt="eraser">
+    <p class="eraser">Eraser</p>
+    <label for="color">Color</label>
+    <input type="color" name="color">
+  </div>
+
+
+
+  <button class="clear">Clear All</button>
+  <button class="save-img"> Save Image</button>
+
+  <div class="rightbar"> </div>
+
+  <script src="script.js" defer></script>
 </body>
+
 </html>
