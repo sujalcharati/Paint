@@ -1,3 +1,4 @@
+
 body{
   background-color:#00bfff;
 }
@@ -8,8 +9,8 @@ color: dimgray;
   background-color:white;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  align-items:space-around;
+  justify-content:space-between;
+  align-items:center;
   padding:2rem;
   width: 11rem;
   height: 30rem;
@@ -18,12 +19,37 @@ color: dimgray;
   top: 85px;
   border-radius: 15px;
 }
+.tool-container{
+  border:solid;
+  border-width:1px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+}
+.select-tool{
+  appearance:none;
+  width:5rem;
+  height:1rem;
+  border:none;
+  background-color:white;
+  text-align:center;
+}
+.select-tool:focus{
+  outline:none;
+}
 .rightbar{
   background-color: aliceblue;
   position: fixed;
   right: 70px;
   top: 85px;
   border-radius: 11px;
+}
+.eraser-tool{
+  background-color:white;
+  border:none;
+  width:5rem;
+  height:1rem;
 }
 .clear:hover{
   background-color: rgb(136, 161, 161);

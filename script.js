@@ -15,7 +15,7 @@ let isPressed = false
 const tools = {
   pencil:{name:"Pencil", image:"./assets/pencil.png", size:"2",},
   pen:{name:"Pen", image:"./assets/pen.png", size:"2",},
-  brush:{name:"Brush", image:"./assets/pen.png", size:"2",},
+  brush:{name:"Brush", image:"./assets/brush.png", size:"2",},
   hightlighter:{name:"Hightlighter", image:"",size:"2",},
 }
 

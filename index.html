@@ -12,17 +12,20 @@
 <body>
 
   <div class="toolbox">
+    <div class="tool-container">
+      <label for="select-tool">Tools</label>
+      <img id="display-tool" src="assets/pencil.png" alt="selected-img" width="80" height="80"></img>
+      <select name="select-tool" class="select-tool" id="select-tool">
+        <option value="pencil">Pencil</option>
+        <option value="highlighter">Highlighter</option>
+        <option value="pen">Pen</option>
+        <option value="brush">Brush</option>
+      </select>
+    </div>
 
-    <label for="select-tool">Tools</label>
-    <img id="display-tool" src="" alt="selected-img"></img>
-    <select name="select-tool" id="select-tool">
-      <option value="pencil">Pencil</option>
-      <option value="highlighter">Highlighter</option>
-      <option value="pen">Pen</option>
-      <option value="brush">Brush</option>
-    </select>
-
-    <button>Eraser</button>
+    <button class="eraser-tool" id="eraser-tool">
+      <img src="assets/eraser.png" alt="eraser" width="40" height="40">
+    </button>
 
     <label for="color">Color</label>
     <input type="color" name="color" value="#000000" id="color-picker">
