@@ -15,7 +15,17 @@ span{
   color: dimgray;
 
 }
-.leftbar{
+label{
+  position:absolute;
+  left:75px;
+  top:270px;
+}
+input{
+  position:absolute;
+  left:75px;
+  top:300px;
+}
+.toolbar{
   background-color: aliceblue;
   width: 200px;
   height: 550px;
@@ -115,7 +125,6 @@ span{
   left: 200px;
 }
 .yellow{
-
   width: 27px;
   position: fixed;
   top: 390px;
@@ -131,7 +140,6 @@ span{
   color: dimgray;
 }
 .save-img{
-
   position: fixed;
   top: 510px;
   left: 130px;
