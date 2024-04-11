@@ -1,39 +1,22 @@
 body{
   background-color:#00bfff;
 }
-img{
-  width: 30px;
-  position: fixed;
-  top: 176px;
-  left: 89px;
-}
-span{
-  font-size: larger;
-  position: fixed;
-  top: 180px;
-  left: 140px;
-  color: dimgray;
-
-}
 label{
-  position:absolute;
-  left:75px;
-  top:270px;
+color: dimgray;
 }
-input{
+.toolbox{
+  background-color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:space-around;
+  padding:2rem;
+  width: 11rem;
+  height: 30rem;
   position:absolute;
-  left:75px;
-  top:300px;
-}
-.toolbar{
-  background-color: aliceblue;
-  width: 200px;
-  height: 550px;
-  position: fixed;
-  left: 75px;
+  left:30px;
   top: 85px;
-  border-radius: 11px;
-
+  border-radius: 15px;
 }
 .rightbar{
   background-color: aliceblue;
@@ -41,104 +24,6 @@ input{
   right: 70px;
   top: 85px;
   border-radius: 11px;
-}
-.tool{
-  position: fixed;
-  left: 140px;
-}
-.pen-img{ 
-  width: 30px;
-  position: fixed;
-  top: 220px;
-  left: 89px;
-}
-.pen{
-  font-size: larger;
-  position: fixed;
-  top: 220px;
-  left: 140px;
-}
-.brush-img{
-  width: 30px;
-  position: fixed;
-  top: 260px;
-  left: 89px;
-}
-.brush{
-  font-size: larger;
-  position: fixed;
-  top: 240px;
-  left: 140px;
-  color: dimgray;
-}
-.eraser-img{
-  width: 30px;
-  position: fixed;
-  top: 300px;
-  left: 89px;
-}
-.eraser{
-  font-size: larger;
-  position: fixed;
-  top: 280px;
-  left: 140px;
-  color: dimgray;
-}
-.color{
-  position: fixed;
-  top: 320px;
-  left: 140px;
-}
-.blue{
-  width: 27px;
-  position: fixed;
-  top: 390px;
-  left: 89px;
-
-}
-.red{
-  width: 27px;
-  position: fixed;
-  top: 390px;
-  left: 125px;
-
-}
-.green{
-  width: 33px;
-  height: 32px;
-  position: fixed;
-  top: 388px;
-  left: 160px;
-}
-.black{
-  width: 27px;
-  position: fixed;
-  top: 390px;
-  left: 200px;
-}
-.yellow{
-  width: 27px;
-  position: fixed;
-  top: 390px;
-  left: 235px;
-}
-.clear-btn{
-  position: fixed;
-  top: 470px;
-  left: 130px;
-  border-radius: 9px;
-  width: 90px;
-  height: 30px;
-  color: dimgray;
-}
-.save-btn{
-  position: fixed;
-  top: 510px;
-  left: 130px;
-  border-radius: 9px;
-  width: 90px;
-  height: 30px;
-  background-color:#00bfff ;
 }
 .clear:hover{
   background-color: rgb(136, 161, 161);
