@@ -37,7 +37,7 @@ input{
 }
 .rightbar{
   background-color: aliceblue;
-  width: 73%;
+  width: 70%;
   height: 550px;
   position: fixed;
   right: 70px;
