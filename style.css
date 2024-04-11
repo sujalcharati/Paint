@@ -120,4 +120,30 @@ span{
     position: fixed;
     top: 390px;
     left: 235px;
-}
+}  
+
+.clear{ 
+
+    position: fixed;
+    top: 470px;
+    left: 130px;
+    border-radius: 9px;
+    width: 90px;
+    height: 30px;
+    color: dimgray;
+    }
+    .save-img{
+        
+    position: fixed;
+    top: 510px;
+    left: 130px;
+    border-radius: 9px;
+    width: 90px;
+    height: 30px;
+    background-color:#00bfff ;
+    
+    }
+    .clear:hover{
+        background-color: rgb(136, 161, 161);
+        color: white;
+    }
