@@ -1,10 +1,11 @@
 const canvas = document.getElementById('canvas')
 const clearCanvas = document.getElementById('clear-btn')
+const colorPicker = document.getElementById('color-picker')
 
 const ctx = canvas.getContext('2d')
 let x, y
 let size = 10
-let color = 'black'
+let color = colorPicker.value
 let isPressed = false
 
 // Canvas Event Listner
@@ -36,6 +37,9 @@ clearCanvas.addEventListener('click',()=>{
   x = undefined
   y = undefined
 })
+
+// Tools
+colorPicker.addEventListener('input',()=>color=colorPicker.value)
 
 const point = (x, y) => {
   ctx.beginPath()
