@@ -37,8 +37,6 @@ input{
 }
 .rightbar{
   background-color: aliceblue;
-  width: 73%;
-  height: 550px;
   position: fixed;
   right: 70px;
   top: 85px;
@@ -124,7 +122,7 @@ input{
   top: 390px;
   left: 235px;
 }
-.clear{
+.clear-btn{
   position: fixed;
   top: 470px;
   left: 130px;
@@ -133,7 +131,7 @@ input{
   height: 30px;
   color: dimgray;
 }
-.save-img{
+.save-btn{
   position: fixed;
   top: 510px;
   left: 130px;
