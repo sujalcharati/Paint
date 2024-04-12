@@ -9,15 +9,21 @@ const displayTool = document.getElementById('display-tool')
 // Global Variables //
 const ctx = canvas.getContext('2d')
 let x, y
-let size = 10
-let color = colorPicker.value
+let size = 2
+let color = ''
 let isPressed = false
 const tools = {
-  pencil:{name:"Pencil", image:"./assets/pencil.png", size:"2",},
-  pen:{name:"Pen", image:"./assets/pen.png", size:"2",},
-  brush:{name:"Brush", image:"./assets/brush.png", size:"2",},
-  hightlighter:{name:"Hightlighter", image:"",size:"2",},
+  pencil:{name:"Pencil", image:"./assets/pencil.png", size:2, alpha:0.7,},
+  pen:{name:"Pen", image:"./assets/pen.png", size:4,},
+  brush:{name:"Brush", image:"./assets/brush.png", size:10,alpha:0.2,},
+  hightlighter:{name:"Hightlighter", image:"",size:8,alpha:0.4,},
 }
+let currentTool = tools.pencil
+
+// Default Event //
+document.addEventListener('DOMContentLoaded',()=>{
+  selectToolEvent()
+})
 
 
 // Canvas //
@@ -25,7 +31,7 @@ canvas.addEventListener('pointerdown', (e) => {
   x = e.offsetX
   y = e.offsetY 
   isPressed = true
-  point(x, y)
+  point(x,y)
 })
 canvas.addEventListener('mousemove', (e) => {
   if (isPressed) {
@@ -46,28 +52,17 @@ canvas.addEventListener('pointerup', (e) => {
 // Tools //
 
 // Display Tools
-selectTool.addEventListener('change',()=>{
-  switch (selectTool.value) {
-    case 'pencil':
-      displayTool.src = tools.pencil.image
-      break;
-case 'pen':
-      displayTool.src = tools.pen.image
-      break;
-case 'hightlighter':
-      displayTool.src = tools.hightlighter.image
-      break;
-case 'brush':
-      displayTool.src = tools.brush.image
-      break;
-    default:
-      displayTool.src = tools.pencil.image
-      break;
-  }
-})
+const selectToolEvent=()=>{
+  selectTool.addEventListener('change',()=>{
+  currentTool = tools[selectTool.value]
+  displayTool.src = currentTool.image
+  })
+}
 
 // Color Picker
-colorPicker.addEventListener('input',()=>color=colorPicker.value)
+colorPicker.addEventListener('input',()=>{
+  color = hexToRgba(colorPicker.value)
+})
 
 // Clear Button //
 clearCanvas.addEventListener('click',()=>{
@@ -91,7 +86,34 @@ const line = (x1, y1, x2, y2) => {
   ctx.lineTo(x2, y2)
   ctx.strokeStyle = color
   ctx.lineWidth = size * 2
-  ctx.lineCap = 'round'
-  ctx.lineJoin = 'round'
   ctx.stroke()
+}
+function hexToRgba(hexColor) {
+  hexColor = hexColor.replace('#', '');
+  let red, green, blue, alpha
+  if (currentTool.name === tools.pencil.name) {
+    red = 43
+    green = 43
+    blue = 43
+    alpha = tools.pencil.alpha
+  }
+  else if (currentTool.name === tools.brush.name) {
+    red = parseInt(hexColor.substring(0, 2), 16)
+    green = parseInt(hexColor.substring(2, 4), 16)
+    blue = parseInt(hexColor.substring(4, 6), 16)
+    alpha = tools.brush.alpha
+  }
+  else if (currentTool.name === tools.highlighter.name) {
+    red = parseInt(hexColor.substring(0, 2), 16)
+    green = parseInt(hexColor.substring(2, 4), 16)
+    blue = parseInt(hexColor.substring(4, 6), 16)
+    alpha = tools.highlighter.alpha
+  }
+  else {
+    red = parseInt(hexColor.substring(0, 2), 16)
+    green = parseInt(hexColor.substring(2, 4), 16)
+    blue = parseInt(hexColor.substring(4, 6), 16)
+    alpha = 1
+  }
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
