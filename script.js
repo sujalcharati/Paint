@@ -1,14 +1,26 @@
+// Element Imports //
 const canvas = document.getElementById('canvas')
 const clearCanvas = document.getElementById('clear-btn')
 const colorPicker = document.getElementById('color-picker')
+const selectTool = document.getElementById('select-tool')
+const displayTool = document.getElementById('display-tool')
 
+
+// Global Variables //
 const ctx = canvas.getContext('2d')
 let x, y
 let size = 10
 let color = colorPicker.value
 let isPressed = false
+const tools = {
+  pencil:{name:"Pencil", image:"./assets/pencil.png", size:"2",},
+  pen:{name:"Pen", image:"./assets/pen.png", size:"2",},
+  brush:{name:"Brush", image:"./assets/brush.png", size:"2",},
+  hightlighter:{name:"Hightlighter", image:"",size:"2",},
+}
 
-// Canvas Event Listner
+
+// Canvas //
 canvas.addEventListener('pointerdown', (e) => {
   x = e.offsetX
   y = e.offsetY 
@@ -30,7 +42,34 @@ canvas.addEventListener('pointerup', (e) => {
   y = undefined
 })
 
-// Button Event Listner
+
+// Tools //
+
+// Display Tools
+selectTool.addEventListener('change',()=>{
+  switch (selectTool.value) {
+    case 'pencil':
+      displayTool.src = tools.pencil.image
+      break;
+case 'pen':
+      displayTool.src = tools.pen.image
+      break;
+case 'hightlighter':
+      displayTool.src = tools.hightlighter.image
+      break;
+case 'brush':
+      displayTool.src = tools.brush.image
+      break;
+    default:
+      displayTool.src = tools.pencil.image
+      break;
+  }
+})
+
+// Color Picker
+colorPicker.addEventListener('input',()=>color=colorPicker.value)
+
+// Clear Button //
 clearCanvas.addEventListener('click',()=>{
   ctx.clearRect(0,0,canvas.width,canvas.height)
   isPressed = false
@@ -38,16 +77,14 @@ clearCanvas.addEventListener('click',()=>{
   y = undefined
 })
 
-// Tools
-colorPicker.addEventListener('input',()=>color=colorPicker.value)
 
+//Functions//
 const point = (x, y) => {
   ctx.beginPath()
   ctx.arc(x, y, size, 0, Math.PI * 2)
   ctx.fillStyle = color
   ctx.fill()
 }
-
 const line = (x1, y1, x2, y2) => {
   ctx.beginPath()
   ctx.moveTo(x1, y1)

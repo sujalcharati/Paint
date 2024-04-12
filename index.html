@@ -11,26 +11,31 @@
 
 <body>
 
-  <div class="toolbar">
-    <h3 class="tool">Tools</h3>
-    <img src="assets/pencil.png" alt="pencil">
-    <span>Pencil</span>
-    <img class="pen-img" src="assets/pen.png" alt="pen">
-    <span class="pen">Pen</span>
-    <img class="brush-img" src="assets/brush.png" alt="brush">
-    <p class="brush"> Brush</p>
-    <img class="eraser-img" src="assets/eraser.png" alt="eraser">
-    <p class="eraser">Eraser</p>
+  <div class="toolbox">
+    <div class="tool-container">
+      <label for="select-tool">Tools</label>
+      <img id="display-tool" src="assets/pencil.png" alt="selected-img" width="80" height="80"></img>
+      <select name="select-tool" class="select-tool" id="select-tool">
+        <option value="pencil">Pencil</option>
+        <option value="highlighter">Highlighter</option>
+        <option value="pen">Pen</option>
+        <option value="brush">Brush</option>
+      </select>
+    </div>
+
+    <button class="eraser-tool" id="eraser-tool">
+      <img src="assets/eraser.png" alt="eraser" width="40" height="40">
+    </button>
 
     <label for="color">Color</label>
     <input type="color" name="color" value="#000000" id="color-picker">
+
+    <button class="btn" id="clear-btn">Clear All</button>
+    <button class="btn" id="save-btn"> Save Image</button>
+
   </div>
 
-  <button class="clear-btn" id="clear-btn">Clear All</button>
-  <button class="save-btn" id="save-btn"> Save Image</button>
-
   <canvas class="rightbar" width="1030" height="550" id="canvas"> </canvas>
-
   <script src="script.js" defer></script>
 </body>
 
