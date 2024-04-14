@@ -9,8 +9,8 @@ const displayTool = document.getElementById('display-tool')
 // Global Variables //
 const ctx = canvas.getContext('2d')
 let x, y
-let size = 2
-let color = ''
+let size = 10
+let color = 'rgba(67, 67, 67, 0.7)'
 let isPressed = false
 const tools = {
   pencil:{name:"Pencil", image:"./assets/pencil.png", size:2, alpha:0.7,},
@@ -20,20 +20,14 @@ const tools = {
 }
 let currentTool = tools.pencil
 
-// Default Event //
-document.addEventListener('DOMContentLoaded',()=>{
-  selectToolEvent()
-})
-
-
 // Canvas //
 canvas.addEventListener('pointerdown', (e) => {
   x = e.offsetX
-  y = e.offsetY 
+  y = e.offsetY
   isPressed = true
   point(x,y)
 })
-canvas.addEventListener('mousemove', (e) => {
+canvas.addEventListener('pointermove', (e) => {
   if (isPressed) {
     const x2 = e.offsetX
     const y2 = e.offsetY
@@ -52,12 +46,12 @@ canvas.addEventListener('pointerup', (e) => {
 // Tools //
 
 // Display Tools
-const selectToolEvent=()=>{
   selectTool.addEventListener('change',()=>{
   currentTool = tools[selectTool.value]
+  console.log(tools[selectTool.value].name)
   displayTool.src = currentTool.image
+  color = hexToRgba(colorPicker.value)
   })
-}
 
 // Color Picker
 colorPicker.addEventListener('input',()=>{
@@ -88,32 +82,32 @@ const line = (x1, y1, x2, y2) => {
   ctx.lineWidth = size * 2
   ctx.stroke()
 }
-function hexToRgba(hexColor) {
+const hexToRgba = (hexColor) => {
   hexColor = hexColor.replace('#', '');
-  let red, green, blue, alpha
+  let red, green, blue, alpha 
   if (currentTool.name === tools.pencil.name) {
     red = 43
     green = 43
     blue = 43
     alpha = tools.pencil.alpha
-  }
-  else if (currentTool.name === tools.brush.name) {
-    red = parseInt(hexColor.substring(0, 2), 16)
-    green = parseInt(hexColor.substring(2, 4), 16)
-    blue = parseInt(hexColor.substring(4, 6), 16)
-    alpha = tools.brush.alpha
-  }
-  else if (currentTool.name === tools.highlighter.name) {
-    red = parseInt(hexColor.substring(0, 2), 16)
-    green = parseInt(hexColor.substring(2, 4), 16)
-    blue = parseInt(hexColor.substring(4, 6), 16)
-    alpha = tools.highlighter.alpha
-  }
-  else {
-    red = parseInt(hexColor.substring(0, 2), 16)
-    green = parseInt(hexColor.substring(2, 4), 16)
-    blue = parseInt(hexColor.substring(4, 6), 16)
-    alpha = 1
-  }
-  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
+    }
+    else if (currentTool.name === tools.brush.name) {
+      red = parseInt(hexColor.substring(0, 2), 16)
+      green = parseInt(hexColor.substring(2, 4), 16)
+      blue = parseInt(hexColor.substring(4, 6), 16)
+      alpha = tools.brush.alpha
+    }
+    else if (currentTool.name === tools.hightlighter.name) {
+      red = parseInt(hexColor.substring(0, 2), 16)
+      green = parseInt(hexColor.substring(2, 4), 16)
+      blue = parseInt(hexColor.substring(4, 6), 16)
+      alpha = tools.hightlighter.alpha
+    }
+    else{
+      red = parseInt(hexColor.substring(0, 2), 16)
+      green = parseInt(hexColor.substring(2, 4), 16)
+      blue = parseInt(hexColor.substring(4, 6), 16)
+      alpha = 1
+    }
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
