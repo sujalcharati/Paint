@@ -12,6 +12,7 @@ let x, y
 let size = 10
 let color = 'rgba(67, 67, 67, 0.7)'
 let isPressed = false
+let erasing = false;
 const tools = {
   pencil:{name:"Pencil", image:"./assets/pencil.png", size:2, alpha:0.7,},
   pen:{name:"Pen", image:"./assets/pen.png", size:4,},
@@ -41,6 +42,16 @@ canvas.addEventListener('pointerup', (e) => {
   x = undefined
   y = undefined
 })
+// started doing massala
+canvas.addEventListener('mousedwn', (e) => {
+  if(erasing){
+  
+      ctx.globalCompositeOperation = 'destination-out';  // Enables erasing effect
+      ctx.lineWidth = 20;  // Eraser size
+  }
+  }
+  
+);
 
 
 // Tools //
@@ -111,3 +122,9 @@ const hexToRgba = (hexColor) => {
     }
     return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
+// eraser functunality 
+// let erasing =true;
+// if (erasing) {
+//     ctx.globalCompositeOperation = 'destination-out'; 
+//   ctx.lineWidth = 20;  
+// }

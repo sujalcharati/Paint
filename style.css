@@ -46,8 +46,8 @@ color: dimgray;
   border-radius: 11px;
 }
 .eraser-tool{
-  background-color:white;
-  border:none;
+  /* background-color:white; */
+  /* border:none; */
   width:5rem;
   height:1rem;
 }
