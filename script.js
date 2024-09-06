@@ -43,7 +43,7 @@ canvas.addEventListener('pointerup', (e) => {
   y = undefined
 })
 // started doing massala
-canvas.addEventListener('mousedwn', (e) => {
+canvas.addEventListener('click', (e) => {
   if(erasing){
   
       ctx.globalCompositeOperation = 'destination-out';  // Enables erasing effect
