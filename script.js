@@ -46,9 +46,14 @@ canvas.addEventListener('pointerup', (e) => {
 canvas.addEventListener('click', (e) => {
   if(erasing){
   
-      ctx.globalCompositeOperation = 'destination-out';  // Enables erasing effect
+      // ctx.globalCompositeOperation = 'destination-out';  // Enables erasing effect
+      ctx.strokeStyle= color;
       ctx.lineWidth = 20;  // Eraser size
+      ctx.stroke();
   }
+
+
+
   }
   
 );
