@@ -44,9 +44,9 @@ canvas.addEventListener('pointerup', (e) => {
 })
 // started doing massala
 canvas.addEventListener('click', (e) => {
+  erasing = true;
   if(erasing){
   
-      // ctx.globalCompositeOperation = 'destination-out';  // Enables erasing effect
       ctx.strokeStyle= color;
       ctx.lineWidth = 20;  // Eraser size
       ctx.stroke();
@@ -127,9 +127,4 @@ const hexToRgba = (hexColor) => {
     }
     return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
-// eraser functunality 
-// let erasing =true;
-// if (erasing) {
-//     ctx.globalCompositeOperation = 'destination-out'; 
-//   ctx.lineWidth = 20;  
-// }
+
