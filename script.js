@@ -4,6 +4,7 @@ const clearCanvas = document.getElementById('clear-btn')
 const colorPicker = document.getElementById('color-picker')
 const selectTool = document.getElementById('select-tool')
 const displayTool = document.getElementById('display-tool')
+const eraserTool = document.getElementById('eraser-tool')
 
 
 // Global Variables //
@@ -43,12 +44,13 @@ canvas.addEventListener('pointerup', (e) => {
   y = undefined
 })
 // started doing massala
-canvas.addEventListener('click', (e) => {
+eraserTool.addEventListener('click', (e) => {
   erasing = true;
   if(erasing){
   
-      ctx.strokeStyle= color;
+      ctx.strokeStyle= "white";
       ctx.lineWidth = 20;  // Eraser size
+      ctx.beginPath();
       ctx.stroke();
   }
 
