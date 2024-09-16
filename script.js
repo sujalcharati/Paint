@@ -44,7 +44,7 @@ canvas.addEventListener('pointerup', (e) => {
   y = undefined
 })
 // started doing massala
-eraserTool.addEventListener('click', (e) => {
+eraserTool.addEventListener('mousedown', (e) => {
   erasing = true;
   if(erasing){
   
