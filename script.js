@@ -43,22 +43,7 @@ canvas.addEventListener('pointerup', (e) => {
   x = undefined
   y = undefined
 })
-// started doing massala
-eraserTool.addEventListener('mousedown', (e) => {
-  erasing = true;
-  if(erasing){
-  
-      ctx.strokeStyle= "white";
-      ctx.lineWidth = 20;  // Eraser size
-      ctx.beginPath();
-      ctx.stroke();
-  }
 
-
-
-  }
-  
-);
 
 
 // Tools //
