@@ -43,6 +43,21 @@ canvas.addEventListener('pointerup', (e) => {
   x = undefined
   y = undefined
 })
+eraserTool.addEventListener('click', () => {
+  erasing = !erasing;
+  if (erasing) {
+    currentTool = { name: "Eraser", size: 10, alpha: 1 };
+    color = 'rgba(255, 255, 255, 1)';
+  } else {
+    currentTool = tools[selectTool.value];
+    color = hexToRgba(colorPicker.value);
+  }
+});
+// canvas.addEventListener('pointerup', (e) => {
+//   isPressed = false
+//   x = undefined
+//   y = undefined
+// })
 
 
 
