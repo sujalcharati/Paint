@@ -53,11 +53,42 @@ eraserTool.addEventListener('click', () => {
     color = hexToRgba(colorPicker.value);
   }
 });
-// canvas.addEventListener('pointerup', (e) => {
-//   isPressed = false
-//   x = undefined
-//   y = undefined
-// })
+
+// Intensity Slider
+const intensitySlider = document.getElementById('intensity-slider');
+intensitySlider.addEventListener('input', () => {
+  const intensity = intensitySlider.value / 100;
+  if (currentTool.name !== "Eraser") {
+    color = hexToRgba(colorPicker.value, intensity);
+  }
+});
+
+const hexToRgba = (hexColor, intensity = 1) => {
+  hexColor = hexColor.replace('#', '');
+  let red, green, blue, alpha;
+  if (currentTool.name === tools.pencil.name) {
+    red = 43;
+    green = 43;
+    blue = 43;
+    alpha = tools.pencil.alpha * intensity;
+  } else if (currentTool.name === tools.brush.name) {
+    red = parseInt(hexColor.substring(0, 2), 16);
+    green = parseInt(hexColor.substring(2, 4), 16);
+    blue = parseInt(hexColor.substring(4, 6), 16);
+    alpha = tools.brush.alpha * intensity;
+  } else if (currentTool.name === tools.hightlighter.name) {
+    red = parseInt(hexColor.substring(0, 2), 16);
+    green = parseInt(hexColor.substring(2, 4), 16);
+    blue = parseInt(hexColor.substring(4, 6), 16);
+    alpha = tools.hightlighter.alpha * intensity;
+  } else {
+    red = parseInt(hexColor.substring(0, 2), 16);
+    green = parseInt(hexColor.substring(2, 4), 16);
+    blue = parseInt(hexColor.substring(4, 6), 16);
+    alpha = intensity;
+  }
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+}
 
 
 
@@ -99,34 +130,5 @@ const line = (x1, y1, x2, y2) => {
   ctx.strokeStyle = color
   ctx.lineWidth = size * 2
   ctx.stroke()
-}
-const hexToRgba = (hexColor) => {
-  hexColor = hexColor.replace('#', '');
-  let red, green, blue, alpha 
-  if (currentTool.name === tools.pencil.name) {
-    red = 43
-    green = 43
-    blue = 43
-    alpha = tools.pencil.alpha
-    }
-    else if (currentTool.name === tools.brush.name) {
-      red = parseInt(hexColor.substring(0, 2), 16)
-      green = parseInt(hexColor.substring(2, 4), 16)
-      blue = parseInt(hexColor.substring(4, 6), 16)
-      alpha = tools.brush.alpha
-    }
-    else if (currentTool.name === tools.hightlighter.name) {
-      red = parseInt(hexColor.substring(0, 2), 16)
-      green = parseInt(hexColor.substring(2, 4), 16)
-      blue = parseInt(hexColor.substring(4, 6), 16)
-      alpha = tools.hightlighter.alpha
-    }
-    else{
-      red = parseInt(hexColor.substring(0, 2), 16)
-      green = parseInt(hexColor.substring(2, 4), 16)
-      blue = parseInt(hexColor.substring(4, 6), 16)
-      alpha = 1
-    }
-    return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
 

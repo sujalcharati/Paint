@@ -15,7 +15,7 @@
     <div class="tool-container">
       <label for="select-tool">Tools</label>
       <img id="display-tool" src="assets/pencil.png" alt="selected-img" width="80" height="80"></img>
-      <select name="select-tool" class="select-tool" id="select-tool">
+      <select name="select-tool" class="select-tool" id="select-tool" onchange="updateToolImage()">
         <option value="pencil" selected>Pencil</option>
         <option value="highlighter">Highlighter</option>
         <option value="pen">Pen</option>
