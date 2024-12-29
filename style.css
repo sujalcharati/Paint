@@ -16,7 +16,7 @@ color: dimgray;
   height: 30rem;
   position:absolute;
   left:30px;
-  top: 85px;
+  top: 50px; 
   border-radius: 15px;
 }
 .tool-container{
@@ -42,7 +42,7 @@ color: dimgray;
   background-color: aliceblue;
   position: fixed;
   right: 70px;
-  top: 85px;
+  top: 50px;
   border-radius: 11px;
 }
 .eraser-tool{
