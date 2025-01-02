@@ -6,7 +6,7 @@ label{
 color: dimgray;
 }
 .toolbox{
-  background-color:white;
+  background-color: rgba(255, 255, 255, 1);
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -19,6 +19,7 @@ color: dimgray;
   top: 50px; 
   border-radius: 15px;
 }
+
 .tool-container{
   border:solid;
   border-width:1px;
@@ -39,15 +40,14 @@ color: dimgray;
   outline:none;
 }
 .rightbar{
-  background-color: aliceblue;
+  background-color: rgba(255, 255, 255, 1);
   position: fixed;
   right: 70px;
   top: 50px;
   border-radius: 11px;
 }
 .eraser-tool{
-  /* background-color:white; */
-  /* border:none; */
+
   width:5rem;
   height:1rem;
 }
