@@ -63,13 +63,14 @@ intensitySlider.addEventListener('input', () => {
   }
 });
 
+
 const hexToRgba = (hexColor, intensity = 1) => {
   hexColor = hexColor.replace('#', '');
   let red, green, blue, alpha;
   if (currentTool.name === tools.pencil.name) {
-    red = 43;
-    green = 43;
-    blue = 43;
+    red = parseInt(hexColor.substring(0, 2), 16);
+    green = parseInt(hexColor.substring(2, 4), 16);
+    blue = parseInt(hexColor.substring(4, 6), 16);
     alpha = tools.pencil.alpha * intensity;
   } else if (currentTool.name === tools.brush.name) {
     red = parseInt(hexColor.substring(0, 2), 16);
@@ -89,7 +90,7 @@ const hexToRgba = (hexColor, intensity = 1) => {
   }
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 }
-
+// ...existing code...
 
 
 // Tools //
@@ -118,11 +119,31 @@ clearCanvas.addEventListener('click',()=>{
 
 //Functions//
 const point = (x, y) => {
-  ctx.beginPath()
-  ctx.arc(x, y, size, 0, Math.PI * 2)
-  ctx.fillStyle = color
-  ctx.fill()
+  ctx.beginPath();
+  ctx.moveTo(point[0].x, point[0].y);
+  
+  for (let i = 1; i < point.length - 1; i++) {
+    const xc = (point[i].x + point[i + 1].x) / 2;
+    const yc = (point[i].y + point[i + 1].y) / 2;
+    ctx.quadraticCurveTo(point[i].x, point[i].y, xc, yc);
+  }
+  
+  ctx.lineTo(point[point.length - 1].x, point[point.length - 1].y);
+  ctx.stroke();
+  
 }
+
+const setToolSize = (newSize) => {
+  size = newSize;
+};
+
+selectTool.addEventListener('change', () => {
+  currentTool = tools[selectTool.value];
+  setToolSize(currentTool.size);
+  console.log(tools[selectTool.value].name);
+  displayTool.src = currentTool.image;
+  color = hexToRgba(colorPicker.value);
+});
 const line = (x1, y1, x2, y2) => {
   ctx.beginPath()
   ctx.moveTo(x1, y1)
