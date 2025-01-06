@@ -18,7 +18,7 @@ const tools = {
   pencil:{name:"Pencil", image:"./assets/pencil.png", size:2, alpha:0.7,},
   pen:{name:"Pen", image:"./assets/pen.png", size:4,},
   brush:{name:"Brush", image:"./assets/brush.png", size:10,alpha:0.2,},
-  hightlighter:{name:"Hightlighter", image:"",size:8,alpha:0.4,},
+  highlighter:{name:"Hightlighter", image:"./assets/highlighter.jpg",size:8,alpha:0.4,},
 }
 let currentTool = tools.pencil
 
@@ -63,35 +63,25 @@ intensitySlider.addEventListener('input', () => {
   }
 });
 
-
 const hexToRgba = (hexColor, intensity = 1) => {
   hexColor = hexColor.replace('#', '');
-  let red, green, blue, alpha;
+  let red = parseInt(hexColor.substring(0, 2), 16);
+  let green = parseInt(hexColor.substring(2, 4), 16);
+  let blue = parseInt(hexColor.substring(4, 6), 16);
+  let alpha;
+
   if (currentTool.name === tools.pencil.name) {
-    red = parseInt(hexColor.substring(0, 2), 16);
-    green = parseInt(hexColor.substring(2, 4), 16);
-    blue = parseInt(hexColor.substring(4, 6), 16);
     alpha = tools.pencil.alpha * intensity;
   } else if (currentTool.name === tools.brush.name) {
-    red = parseInt(hexColor.substring(0, 2), 16);
-    green = parseInt(hexColor.substring(2, 4), 16);
-    blue = parseInt(hexColor.substring(4, 6), 16);
     alpha = tools.brush.alpha * intensity;
+  } else if (currentTool.name === tools.hightlighter.name) {
+    alpha = tools.hightlighter.alpha * intensity;
+  } else {
+    alpha = currentTool.alpha ? currentTool.alpha * intensity : intensity;
   }
-    if (currentTool.name === tools.hightlighter.name) {
-      red = parseInt(hexColor.substring(0, 2), 16);
-      green = parseInt(hexColor.substring(2, 4), 16);
-      blue = parseInt(hexColor.substring(4, 6), 16);
-      alpha = tools.hightlighter.alpha * intensity;
-    } else {
-      red = parseInt(hexColor.substring(0, 2), 16);
-      green = parseInt(hexColor.substring(2, 4), 16);
-      blue = parseInt(hexColor.substring(4, 6), 16);
-      alpha = currentTool.alpha ? currentTool.alpha * intensity : intensity;
-    }
+
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 };
-
 
 // Tools //
 
