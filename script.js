@@ -74,8 +74,8 @@ const hexToRgba = (hexColor, intensity = 1) => {
     alpha = tools.pencil.alpha * intensity;
   } else if (currentTool.name === tools.brush.name) {
     alpha = tools.brush.alpha * intensity;
-  } else if (currentTool.name === tools.hightlighter.name) {
-    alpha = tools.hightlighter.alpha * intensity;
+  } else if (currentTool.name === tools.highlighter.name) {
+    alpha = tools.highlighter.alpha * intensity;
   } else {
     alpha = currentTool.alpha ? currentTool.alpha * intensity : intensity;
   }
