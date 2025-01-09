@@ -54,16 +54,9 @@ eraserTool.addEventListener('click', () => {
   }
 });
 
-// Intensity Slider
-const intensitySlider = document.getElementById('intensity-slider');
-intensitySlider.addEventListener('input', () => {
-  const intensity = intensitySlider.value / 100;
-  if (currentTool.name !== "Eraser") {
-    color = hexToRgba(colorPicker.value, intensity);
-  }
-});
 
-const hexToRgba = (hexColor, intensity = 1) => {
+
+const hexToRgba = (hexColor, intensity = 5) => {
   hexColor = hexColor.replace('#', '');
   let red = parseInt(hexColor.substring(0, 2), 16);
   let green = parseInt(hexColor.substring(2, 4), 16);
@@ -72,8 +65,10 @@ const hexToRgba = (hexColor, intensity = 1) => {
 
   if (currentTool.name === tools.pencil.name) {
     alpha = tools.pencil.alpha * intensity;
-  } else if (currentTool.name === tools.brush.name) {
+    } else if (currentTool.name === tools.brush.name) {
     alpha = tools.brush.alpha * intensity;
+    ctx.lineCap = 'round'; // Makes the brush strokes have a rounded end
+    ctx.lineJoin = 'round'; // Creates smooth corners where lines meet
   } else if (currentTool.name === tools.highlighter.name) {
     alpha = tools.highlighter.alpha * intensity;
   } else {
@@ -83,6 +78,8 @@ const hexToRgba = (hexColor, intensity = 1) => {
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 };
 
+
+// 
 // Tools //
 
 // Display Tools
