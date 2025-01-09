@@ -5,6 +5,14 @@ const colorPicker = document.getElementById('color-picker')
 const selectTool = document.getElementById('select-tool')
 const displayTool = document.getElementById('display-tool')
 const eraserTool = document.getElementById('eraser-tool')
+const savebutton = document.getElementById('save-btn');
+
+savebutton.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'drawing.png';
+  link.href = canvas.toDataURL();
+  link.click();
+});
 
 
 // Global Variables //
