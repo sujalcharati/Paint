@@ -1,4 +1,3 @@
-// Element Imports //
 const canvas = document.getElementById('canvas')
 const clearCanvas = document.getElementById('clear-btn')
 const colorPicker = document.getElementById('color-picker')
@@ -15,7 +14,6 @@ savebutton.addEventListener('click', () => {
 });
 
 
-// Global Variables //
 const ctx = canvas.getContext('2d')
 let x, y
 let size = 10
@@ -75,8 +73,8 @@ const hexToRgba = (hexColor, intensity = 5) => {
     alpha = tools.pencil.alpha * intensity;
     } else if (currentTool.name === tools.brush.name) {
     alpha = tools.brush.alpha * intensity;
-    ctx.lineCap = 'round'; // Makes the brush strokes have a rounded end
-    ctx.lineJoin = 'round'; // Creates smooth corners where lines meet
+    ctx.lineCap = 'round'; 
+    ctx.lineJoin = 'round';
   } else if (currentTool.name === tools.highlighter.name) {
     alpha = tools.highlighter.alpha * intensity;
   } else {
@@ -87,7 +85,6 @@ const hexToRgba = (hexColor, intensity = 5) => {
 };
 
 
-// 
 // Tools //
 
 // Display Tools
