@@ -1,4 +1,4 @@
-
+/* 
 body{
   background-color:#00bfff;
 }
@@ -54,4 +54,115 @@ color: dimgray;
 .clear:hover{
   background-color: rgb(136, 161, 161);
   color: white;
+} */
+body {
+  background-color: #00bfff;
+}
+
+label {
+  color: dimgray;
+}
+
+.toolbox {
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 11rem;
+  height: 30rem;
+  position: absolute;
+  left: 30px;
+  top: 50px;
+  border-radius: 15px;
+}
+
+.tool-container {
+  border: solid;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-tool {
+  appearance: none;
+  width: 5rem;
+  height: 1rem;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+.select-tool:focus {
+  outline: none;
+}
+
+.rightbar {
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  right: 70px;
+  top: 50px;
+  border-radius: 11px;
+}
+
+.eraser-tool {
+  width: 3rem;
+  height: 0.8rem;
+}
+
+.clear:hover {
+  background-color: rgb(136, 161, 161);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .toolbox {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 0;
+  }
+
+  .tool-container {
+    border: none;
+    flex-direction: row;
+  }
+
+  .rightbar {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 11px;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .select-tool, .eraser-tool {
+    width: 20px;
+    height: auto;
+    font-size: 0.8rem;
+  }
+
+  #eraser-img {
+    width: 20px;
+    height: auto;
+    font-size: 0.8rem;
+  }
+
+  /* img, button {
+    width: 50%;
+    height: auto;
+
+  } */
 }
